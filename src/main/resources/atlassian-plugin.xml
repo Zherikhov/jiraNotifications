@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
+  <plugin-info> 
+    <description>${project.description}</description>  
+    <version>${project.version}</version>  
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <param name="plugin-icon">images/pluginIcon.png</param>  
+    <param name="plugin-logo">images/pluginLogo.png</param> 
+  </plugin-info>  
+  <!-- add our i18n resource -->  
+  <resource type="i18n" name="i18n" location="jiraNotifications"/>  
+  <!-- add our web resources -->  
+  <web-resource key="jiraNotifications-resources" name="jiraNotifications Web Resources"> 
+    <dependency>com.atlassian.auiplugin:ajs</dependency>  
+    <resource type="download" name="jiraNotifications.css" location="/css/jiraNotifications.css"/>  
+    <resource type="download" name="jiraNotifications.js" location="/js/jiraNotifications.js"/>  
+    <resource type="download" name="images/" location="/images"/>  
+    <context>jiraNotifications</context> 
+  </web-resource>  
+  <web-section name="Vlad Section" i18n-name-key="vlad-section.name" key="vlad-section" location="admin_plugins_menu" weight="1000">
+    <description key="vlad-section.description">The qq Plugin</description>
+    <label key="vlad-section.label"/>
+  </web-section>  
+  <web-item name="Vlad Web Item" i18n-name-key="vlad-web-item.name" key="vlad-web-item" section="admin_plugins_menu/vlad-section" weight="1000">
+    <description key="vlad-web-item.description">The web Plugin</description>
+    <label key="vlad-web-item.label"/>
+    <link linkId="vlad-web-item-link">/secure/admin/WebworkTestAction.jspa</link>
+  </web-item>  
+  <webwork1 key="vlad-webwork" name="Vlad Webwork" i18n-name-key="vlad-webwork.name" roles-required="admin">
+    <description key="vlad-webwork.description">The Webwork Plugin</description>
+    <actions> 
+      <action name="ru.finam.jira.webwork.WebworkTestAction" alias="WebworkTestAction"> 
+        <view name="success">/templates/webwork-test/success.vm</view>  
+        <view name="input">/templates/webwork-test/input.vm</view>  
+        <view name="error">/templates/webwork-test/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>
+</atlassian-plugin>

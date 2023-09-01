@@ -1,0 +1,22 @@
+<form class="aui" method="POST" action="WebworkTestAction!save.jspa">
+    <div class="field-group">
+        <label for="parameter1">Parameter1
+            <span class="aui-icon icon-required">(required)</span></label>
+        <input class="text medium-field" type="text"
+               id="parameter1" name="parameter1" placeholder="parameter1" value="#{parameter1}">
+        <div class="description">This is a value for parameter1</div>
+    </div>
+    <div class="field-group">
+        <label for="parameter2">Parameter2
+            <span class="aui-icon icon-required">(required)</span></label>
+        <input class="text medium-field" type="text"
+               id="parameter2" name="parameter2" placeholder="parameter2" value="#{parameter2}">
+        <div class="description">This is a value for parameter2</div>
+    </div>
+    <div class="buttons-container">
+        <div class="buttons">
+            <input class="button submit" type="submit" value=Save id="comment-save-button">
+            <input class="button submit" type="submit" value=Clear id="comment-clear-button" formaction="WebworkTestAction!clear.jspa">
+        </div>
+    </div>
+</form>
